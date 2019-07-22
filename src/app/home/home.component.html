@@ -1,1 +1,29 @@
-<p>home works!</p>
+<ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+            <img [src]="images[0]" alt="Random first slide">
+        </div>
+        <div class="carousel-caption">
+            <h3>Curso de Angular 8</h3>
+            <p>Uso de componentes de NgBootstrap.</p>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+            <img [src]="images[1]" alt="Random second slide">
+        </div>
+        <div class="carousel-caption">
+            <h3>Curso de Angular 8</h3>
+            <p>Ejemplo del uso de un carrusel de imágenes.</p>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+            <img [src]="images[2]" alt="Random third slide">
+        </div>
+        <div class="carousel-caption">
+            <h3>Curso de Angular 8</h3>
+            <p>Ejemplo también del uso de ng-templates.</p>
+        </div>
+    </ng-template>
+</ngb-carousel>
