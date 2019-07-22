@@ -1,0 +1,17 @@
+<h2>Componente saludo</h2>
+<div class="form-group">
+  <label for="in-nombre">Nombre</label>
+  <input type="text" class="form-control" 
+    [(ngModel)]= 'nombre'
+    name="in-nombre" id="in-nombre" 
+    [placeholder]="mesage">
+</div>
+<button type="button" name="btn-borrar" 
+    id="btn-borrar" (click)="onClickBorrar($event)"
+    class="btn btn-primary btn-lg btn-block">
+    Borrar
+</button>
+<div class="mt-4 mb-4">
+  <output>Hola {{ nombre }}</output>  
+</div>
+
