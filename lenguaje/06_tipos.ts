@@ -79,3 +79,14 @@
     const otramas = (c: string) : void => {
     }
  }
+
+ // Enums
+ {
+
+    enum Direction {
+        Up,
+        Down,
+        Left,
+        Right,
+    }
+ }
