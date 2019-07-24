@@ -10,6 +10,7 @@ export class ListaSimpleComponent implements OnInit {
   
   aTareas: Array<TareaModel>
   newTarea: TareaModel
+  isEditable: boolean
 
   constructor() { }
 

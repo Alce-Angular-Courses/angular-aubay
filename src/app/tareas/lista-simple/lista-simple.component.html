@@ -22,14 +22,65 @@
         Borrar Todas
     </button>
 </div>
-<div>
+
+<!--  Forma original Angular 2
+<div class='mt-4' *ngIf="aTareas.length">
+ -->
+
+<!-- Forma de Angular 4
+
+<div *ngIf="aTareas.length; 
+        then TemplateSi; else TemplateNo">
+</div>   
+
+<ng-template #TemplateSi>
+    <div class='mt-4'>
+        <h4>Tareas</h4>
+        <ul>
+            <li *ngFor="let tarea of aTareas; let i = index">
+                <input type="checkbox" name="isC" id="isC" 
+                [(ngModel)]="tarea.isCompleted" (change)='saveTareas()'>
+                {{tarea.nombre}} - {{tarea.responsable}}
+                <span class="pointer" (click)="deleteTarea(i)">🗑️</span> 
+            </li>
+        </ul>        
+    </div>
+        
+</ng-template>
+
+<ng-template #TemplateNo>
+    <div class='mt-4'>
+      <p>Animate a añadir alguna tarea</p>  
+    </div>
+</ng-template> 
+
+
+Forma de Angular 5
+-->
+
+<div class='mt-4' *ngIf="aTareas.length; else TemplateNo">
     <h4>Tareas</h4>
     <ul>
-        <li *ngFor="let tarea of aTareas; let i = index">
+        <li *ngFor="let tarea of aTareas; let i = index"
+        [ngClass]="{completado: tarea.isCompleted }" [contentEditable]=isEditable>
             <input type="checkbox" name="isC" id="isC" 
             [(ngModel)]="tarea.isCompleted" (change)='saveTareas()'>
             {{tarea.nombre}} - {{tarea.responsable}}
+            <span class="pointer" (click)="isEditable=true">✍️</span>
             <span class="pointer" (click)="deleteTarea(i)">🗑️</span> 
         </li>
-    </ul>
-</div>
+    </ul>     
+</div>  
+
+<ng-template #TemplateNo>
+    <div class='mt-4'>
+        <p>Animate a añadir alguna tarea</p>  
+    </div>
+</ng-template>
+
+
+
+
+
+
+    
