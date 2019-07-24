@@ -1,0 +1,8 @@
+
+<input type="checkbox" name="isC" id="isC" 
+ [(ngModel)]="tarea.isCompleted" (change)='onChange()'>
+<span [contentEditable]='isEditable' [ngClass]="{completado: tarea.isCompleted}">
+  {{tarea.nombre}} - {{tarea.responsable}}  
+</span>
+<span class="pointer" (click)="isEditable=true">✍️</span>
+<span class="pointer" (click)="onClickDelete()">🗑️</span> 

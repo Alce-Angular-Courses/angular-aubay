@@ -1,0 +1,22 @@
+<h3>Lista Plus</h3>
+
+<aby-nueva-tarea (addTarea)="addTarea($event)"></aby-nueva-tarea>
+
+<div class='mt-4' *ngIf="aTareas.length; else TemplateNo">
+    <h4>Tareas</h4>
+    <ul>
+        <li *ngFor="let tarea of aTareas; let i = index">
+            <aby-tarea [tarea]="tarea" [i]="i"
+                (deleteTarea)="deleteTarea($event)"></aby-tarea>
+        </li>
+    </ul>
+</div>
+
+<ng-template #TemplateNo>
+    <div class='mt-4'>
+        <p>Animate a añadir alguna tarea</p>
+    </div>
+</ng-template>
+
+
+

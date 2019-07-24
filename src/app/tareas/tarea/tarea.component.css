@@ -1,0 +1,9 @@
+.pointer {
+    cursor: pointer;
+}
+
+.completado {
+    text-decoration: line-through;
+    color: gray;
+    font-style: italic;
+}
