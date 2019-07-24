@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col">
             <address> {{ autor }} - {{ empresa }}</address>
-            <p>{{ fecha.toLocaleDateString() }}</p>
+            <p>{{ fecha | date : 'fullDate' | titlecase}}</p>
         </div>
     </div>
 </footer>
