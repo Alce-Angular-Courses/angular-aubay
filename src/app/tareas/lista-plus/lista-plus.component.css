@@ -1,3 +1,9 @@
 ul {
     list-style-type: none
 }
+
+dialog {
+    color: brown;
+    background-color: bisque;
+    text-align: center;
+}

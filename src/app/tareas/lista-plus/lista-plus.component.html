@@ -1,13 +1,17 @@
 <h3>Lista Plus</h3>
 
-<aby-nueva-tarea (addTarea)="addTarea($event)"></aby-nueva-tarea>
+<aby-nueva-tarea 
+    (addTarea)="addTarea($event)"
+    (deleteAllTareas)="deleteAllTareas()">
+</aby-nueva-tarea>
 
 <div class='mt-4' *ngIf="aTareas.length; else TemplateNo">
     <h4>Tareas</h4>
     <ul>
         <li *ngFor="let tarea of aTareas; let i = index">
             <aby-tarea [tarea]="tarea" [i]="i"
-                (deleteTarea)="deleteTarea($event)"></aby-tarea>
+                (deleteTarea)="deleteTarea($event)"
+                (changeTarea)="changeTarea($event)"></aby-tarea> 
         </li>
     </ul>
 </div>
@@ -17,6 +21,12 @@
         <p>Animate a añadir alguna tarea</p>
     </div>
 </ng-template>
+
+<dialog #dlgConfirmar>
+    <p>¿Estas seguro de borrar todas las tareas?</p>
+    <button (click)="deleteAllTareas(true)">SI</button> 
+    <button (click)="dlgConfirmar.close()">NO</button>
+</dialog>
 
 
 

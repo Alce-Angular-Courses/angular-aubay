@@ -11,7 +11,7 @@ export class TareaComponent implements OnInit {
   @Input() tarea: TareaModel;
   @Input() i: number; 
   @Output() deleteTarea: EventEmitter<number>
-  @Output() changeTarea: EventEmitter<any>
+  @Output() changeTarea: EventEmitter<object>
 
   isEditable: boolean;
 
@@ -25,7 +25,7 @@ export class TareaComponent implements OnInit {
   }
 
   onChange() {
-    
+    this.changeTarea.next({i: this.i, tarea: this.tarea})
   }
 
   onClickDelete() {

@@ -9,18 +9,25 @@ import { TareaModel } from 'src/app/models/tarea.model';
 export class NuevaTareaComponent implements OnInit {
   newTarea: TareaModel
   @Output() addTarea: EventEmitter<TareaModel>
+  @Output() deleteAllTareas: EventEmitter<null>
   
   constructor() {
     this.addTarea = new EventEmitter()
+    this.deleteAllTareas = new EventEmitter()
    }
 
   ngOnInit() {
     this.newTarea = new TareaModel()
+  
   }
 
   onClickAdd() {
     this.addTarea.next(this.newTarea)
     this.newTarea = new TareaModel()
+  }
+
+  onClickDelete() {
+    this.deleteAllTareas.next(null)
   }
 
 }

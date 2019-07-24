@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { TareaModel } from 'src/app/models/tarea.model';
 
 @Component({
@@ -8,6 +8,7 @@ import { TareaModel } from 'src/app/models/tarea.model';
 })
 export class ListaPlusComponent implements OnInit {
   aTareas: Array<TareaModel>
+  @ViewChild('dlgConfirmar', {static: true}) dlgConfirmar: ElementRef
   constructor() { }
 
   ngOnInit() {
@@ -25,10 +26,27 @@ export class ListaPlusComponent implements OnInit {
     this.saveTareas()
   }
 
+  changeTarea(o: {i: number, tarea: TareaModel}) {
+    this.aTareas.splice(o.i, 1, o.tarea)
+    this.saveTareas()
+  }
+
   saveTareas() { 
     console.log(this.aTareas)
     localStorage.setItem('tareasPlus',
     JSON.stringify(this.aTareas))
+  }
+
+  deleteAllTareas(ok = false) {
+    if (ok) {
+      this.dlgConfirmar.nativeElement.close()
+      this.aTareas = []
+      this.saveTareas()
+    } else {
+      this.dlgConfirmar.nativeElement.showModal()
+    }
+    
+
   }
   
 }
