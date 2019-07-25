@@ -1,0 +1,101 @@
+<h3>Formulario Template-Driven</h3>
+<form name="form-td" id="form-td" novalidate= "false"
+    (submit)='onSubmit($event)' #formAlumno='ngForm'>
+    <fieldset>
+        <legend>Datos de usuario</legend>
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" 
+            name="nombre" id="nombre" required
+            minlength="2" #loc_nombre='ngModel'
+            [(ngModel)]="alumno.nombre">
+            <div class="error" 
+            *ngIf="loc_nombre.invalid && loc_nombre.touched">
+                <p *ngIf="loc_nombre?.errors?.required">
+                    Campo requerido
+                </p>
+                <p *ngIf="loc_nombre?.errors?.minlength">
+                    Al menos 2 caracteres</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" class="form-control" 
+            name="apellidos" id="apellidos"
+            [(ngModel)]="alumno.apellidos">
+        </div>
+        <div class="form-group">
+            <label for="dni">DNI</label>
+            <input type="text" class="form-control" 
+            name="dni" id="dni"
+            [(ngModel)]="alumno.dni">
+        </div>
+        <div class="form-group">
+            <label for="email">Correo</label>
+            <input type="email" class="form-control" 
+            name="email" id="email" required
+            pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+            #loc_correo = "ngModel"
+            [(ngModel)]="alumno.email">
+            <div class="error" 
+            *ngIf="loc_correo.invalid && loc_correo.touched">
+                <p *ngIf="loc_correo?.errors?.required">
+                    Campo requerido
+                </p>
+                <p *ngIf="loc_correo?.errors?.pattern">
+                    Escribe un correo</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nacim">Fecha de nacimiento</label>
+            <input type="date" class="form-control" 
+            name="nacim" id="nacim"
+            [(ngModel)]="alumno.nacim">
+        </div>
+        <div class="form-group">
+            <label for="coment">Comentarios</label>
+            <textarea class="form-control" 
+            name="coment" id="coment" rows="3"
+            [(ngModel)]="alumno.coment"></textarea>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Datos del curso</legend>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" 
+                name="isOk" id="isOk"
+                [(ngModel)]="alumno.isOk">
+                Estoy de acuerdo con ....
+            </label>
+        </div>
+        <div>
+            <legend>Turno</legend>
+            <div class="form-check" *ngFor="let turno of turnos">
+                <label class="form-check-label" [title]="turno.descripcion">
+                    <input type="radio" class="form-check-input" 
+                    name="turno" [id]="turno.id" [value]="turno"
+                    [(ngModel)]="alumno.turno">
+                    {{turno.name}}
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="curso">Selecciona el tema</label>
+            <select class="form-control" 
+            name="curso" id="curso"
+            [(ngModel)]="alumno.curso">
+                <option *ngFor="let curso of cursos" [ngValue]="curso"
+                    [title]="curso.descripcion">{{ curso.name }}
+                </option>
+            </select>
+        </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary"
+        [disabled]="formAlumno.invalid">
+        Enviar</button>
+</form>
+
+<div>
+    {{ alumno | json}}
+</div>

@@ -14,6 +14,10 @@ const routes: Routes = [
    { path: 'tareas', loadChildren: './tareas/tareas.module#TareasModule' },
   // { path: 'usuarios', component: UsuariosComponent },
   {
+    path: 'cursos', 
+    loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosModule)
+  },
+  {
     path: 'usuarios', 
     loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosModule)
   },
