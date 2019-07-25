@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TareaModel } from 'src/app/models/tarea.model';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'aby-lista-simple',
@@ -12,12 +13,12 @@ export class ListaSimpleComponent implements OnInit {
   newTarea: TareaModel
   isEditable: boolean
 
-  constructor() { }
+  constructor(public storageService: StorageService) { }
 
   ngOnInit() {
     this.isEditable = false;
-    this.aTareas = ( localStorage.getItem('tareas') ?
-    JSON.parse(localStorage.getItem('tareas')): [])
+    this.aTareas = ( this.storageService.getArray('tareas'))
+    ? this.storageService.getArray('tareas') :  []
     this.newTarea = new TareaModel()
   }
 
@@ -29,7 +30,7 @@ export class ListaSimpleComponent implements OnInit {
 
   deleteAllTareas() {
     this.aTareas = []
-    localStorage.removeItem('tareas')
+    this.storageService.removeArray('tareas')
   }
 
   deleteTarea(i:number) {
@@ -39,6 +40,7 @@ export class ListaSimpleComponent implements OnInit {
 
   saveTareas() { 
     console.log(this.aTareas)
-    localStorage.setItem('tareas',
-    JSON.stringify(this.aTareas))}
+    this.storageService.setArray('tareas', this.aTareas)
+  }
+
 }
