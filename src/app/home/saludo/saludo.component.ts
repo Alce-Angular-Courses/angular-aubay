@@ -8,11 +8,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 export class SaludoComponent implements OnInit {
   nombre: string;
   mesage: string;
+  frase: string;
   constructor() { }
 
   ngOnInit() {
     this.nombre = ''
     this.mesage = 'Dime tu nombre'
+    this.frase = 'Ejemplo de frase larga para probar un pipe'
   }
 
   onClickBorrar(ev: Event) {

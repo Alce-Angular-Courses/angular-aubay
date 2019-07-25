@@ -13,5 +13,6 @@
 </button>
 <div [abyDestacar]="'Muy Importante'" class="mt-4 mb-4">
   <output>Hola {{ nombre.toUpperCase() }}</output>  
+  <p>{{ frase | truncate : 25 }}</p>
 </div>
 

@@ -5,6 +5,7 @@ import { SaludoComponent } from './saludo/saludo.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { SaludoLocalComponent } from './saludo-local/saludo-local.component';
+import { SharedModule } from '../shared/shared.module';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -19,7 +20,9 @@ describe('HomeComponent', () => {
        ],
       imports: [
         FormsModule,
-        NgbModule] 
+        NgbModule,
+        SharedModule
+      ] 
     })
     .compileComponents();
   }));
