@@ -1,1 +1,8 @@
-<p>catalogo works!</p>
+<h3>Catalogo de libros</h3>
+<ul>
+    <li *ngFor="let libro of aLibros; let i = index">
+        <a [routerLink]="'detalle/'+i">
+            {{ libro.autor}} - {{ libro.title }}
+        </a>
+    </li>
+</ul>

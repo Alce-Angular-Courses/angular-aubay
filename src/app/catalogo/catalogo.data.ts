@@ -1,4 +1,4 @@
-export const data = [
+export const DATA = [
 	{
 		'id': '11',
 		'title': 'Sueños de acero y neón',

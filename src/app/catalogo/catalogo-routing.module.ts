@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CatalogoComponent } from './catalogo.component';
+import { DetalleComponent } from './detalle/detalle.component';
 
 
 const routes: Routes = [
   { path: '', component: CatalogoComponent },
+  { path: 'detalle/:id', component: DetalleComponent },
+  
 ];
 
 @NgModule({
