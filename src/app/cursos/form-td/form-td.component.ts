@@ -26,8 +26,9 @@ export class FormTdComponent implements OnInit {
   }
 
   onSubmit(ev) {
-    console.log(ev)
+    console.log(this.alumno)
     console.log('enviando')
-    ev.preventDefault()
+
+    // ev.preventDefault()
   }
 }

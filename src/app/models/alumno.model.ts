@@ -17,8 +17,8 @@ export class AlumnoModel {
         public nacim: Date = new Date(),
         public coment: string = '',
         public isOk: boolean = false,
-        public turno: ITurno | object = {},
-        public curso: ICurso | object = {}
+        public turno: ITurno | object = null,
+        public curso: ICurso | object = null
     ) {}
 
 

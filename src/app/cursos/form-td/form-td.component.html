@@ -64,7 +64,7 @@
         <div class="form-check">
             <label class="form-check-label">
                 <input type="checkbox" class="form-check-input" 
-                name="isOk" id="isOk"
+                name="isOk" id="isOk" required
                 [(ngModel)]="alumno.isOk">
                 Estoy de acuerdo con ....
             </label>
@@ -75,7 +75,7 @@
                 <label class="form-check-label" [title]="turno.descripcion">
                     <input type="radio" class="form-check-input" 
                     name="turno" [id]="turno.id" [value]="turno"
-                    [(ngModel)]="alumno.turno">
+                    [(ngModel)]="alumno.turno" required>
                     {{turno.name}}
                 </label>
             </div>
@@ -83,7 +83,7 @@
         <div class="form-group">
             <label for="curso">Selecciona el tema</label>
             <select class="form-control" 
-            name="curso" id="curso"
+            name="curso" id="curso" required
             [(ngModel)]="alumno.curso">
                 <option *ngFor="let curso of cursos" [ngValue]="curso"
                     [title]="curso.descripcion">{{ curso.name }}
@@ -95,7 +95,3 @@
         [disabled]="formAlumno.invalid">
         Enviar</button>
 </form>
-
-<div>
-    {{ alumno | json}}
-</div>
