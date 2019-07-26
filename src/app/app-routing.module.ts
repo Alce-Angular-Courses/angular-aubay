@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'usuarios', 
     loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosModule)
   },
+  {
+    path: 'catalogo', 
+    loadChildren: () => import('./catalogo/catalogo.module').then(m => m.CatalogoModule)
+  },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: '**', component: ErrorComponent }
 ];

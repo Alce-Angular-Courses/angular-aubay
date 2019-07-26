@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {} from './catalogo.json'
+
 @Component({
   selector: 'aby-usuarios',
   templateUrl: './usuarios.component.html',
