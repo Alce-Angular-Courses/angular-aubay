@@ -1,37 +1,46 @@
 <h3>Formulario Model-Driven (Rx)</h3>
-<form name="form-td" id="form-td">
+<form [formGroup]="formAlumno" (submit)='onSubmit($event)'
+    name="form-td" id="form-td">
     <fieldset>
         <legend>Datos de usuario</legend>
         <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" name="nombre" id="nombre">
+            <input type="text" class="form-control" 
+            formControlName="nombre" id="nombre">
         </div>
         <div class="form-group">
             <label for="apellidos">Apellidos</label>
-            <input type="text" class="form-control" name="apellidos" id="apellidos">
+            <input type="text" class="form-control" 
+            formControlName="apellidos" id="apellidos">
         </div>
         <div class="form-group">
             <label for="dni">DNI</label>
-            <input type="text" class="form-control" name="dni" id="dni">
+            <input type="text" class="form-control" 
+            formControlName="dni" id="dni">
         </div>
         <div class="form-group">
             <label for="email">Correo</label>
-            <input type="email" class="form-control" name="email" id="email">
+            <input type="email" class="form-control" 
+            formControlName="email" id="email">
         </div>
         <div class="form-group">
             <label for="nacim">Fecha de nacimiento</label>
-            <input type="date" class="form-control" name="nacim" id="nacim">
+            <input type="date" class="form-control" 
+            formControlName="nacim" id="nacim">
         </div>
         <div class="form-group">
             <label for="coment">Comentarios</label>
-            <textarea class="form-control" name="coment" id="coment" rows="3"></textarea>
+            <textarea class="form-control" 
+                formControlName="coment" id="coment" rows="3">
+            </textarea>
         </div>
     </fieldset>
     <fieldset>
         <legend>Datos del curso</legend>
         <div class="form-check">
             <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" name="isOk" id="isOk">
+                <input type="checkbox" class="form-check-input" 
+                formControlName="isOk" id="isOk">
                 Estoy de acuerdo con ....
             </label>
         </div>
@@ -39,19 +48,22 @@
             <legend>Turno</legend>
             <div class="form-check" *ngFor="let turno of turnos">
                 <label class="form-check-label" [title]="turno.descripcion">
-                    <input type="radio" class="form-check-input" name="turno" [id]="turno.id" [value]="turno">
+                    <input type="radio" class="form-check-input" 
+                    formControlName="turno"
+                    name="turno" [id]="turno.id" [value]="turno">
                     {{turno.name}}
                 </label>
             </div>
         </div>
         <div class="form-group">
             <label for="curso">Selecciona el tema</label>
-            <select class="form-control" name="curso" id="curso" required>
+            <select class="form-control" 
+                formControlName="curso" id="curso">
                 <option *ngFor="let curso of cursos" [ngValue]="curso" [title]="curso.descripcion">{{ curso.name }}
                 </option>
             </select>
         </div>
     </fieldset>
-    <button type="submit" class="btn btn-primary">
+    <button type="submit" class="btn btn-primary" [disabled]="formAlumno.invalid">
         Enviar</button>
 </form>

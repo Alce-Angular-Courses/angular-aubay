@@ -5,7 +5,7 @@ import { CursosRoutingModule } from './cursos-routing.module';
 import { CursosComponent } from './cursos.component';
 import { FormTdComponent } from './form-td/form-td.component';
 import { FormMdComponent } from './form-md/form-md.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     CursosRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CursosModule { }
