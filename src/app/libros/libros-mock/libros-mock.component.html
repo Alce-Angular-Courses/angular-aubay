@@ -3,11 +3,17 @@
       <h4 class="card-title">Libros-mock</h4>  
     </div>
     <div class="card-body form-group">
-        <input type="text"
-            class="form-control" name="" id="" 
+        <input type="text" 
+            class="form-control" name="" id=""
+            [(ngModel)]="clave" (change)="onChangeInput()"
             placeholder="Clave de búsqueda">
     </div>
     <div class="card-footer text-muted">
         Resultados
+        <ul>
+            <li *ngFor="let libro of aLibros">
+                {{libro}}
+            </li>
+        </ul>
     </div>
 </div>

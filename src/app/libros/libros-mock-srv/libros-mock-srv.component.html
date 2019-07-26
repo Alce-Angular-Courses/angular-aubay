@@ -1,0 +1,23 @@
+<div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Libros-mock-srv</h4>  
+        </div>
+        <div class="card-body form-group">
+            <input type="text" 
+                class="form-control" name="" id=""
+                [(ngModel)]="clave"
+                placeholder="Clave de búsqueda">
+            <div class="mt-3">
+                <button type="button" (click)="onBuscar()"
+                class="btn btn-primary">Buscar</button>
+            </div>        
+        </div>
+        <div class="card-footer text-muted">
+            Resultados
+            <ul>
+                <li *ngFor="let libro of aLibros">
+                    {{libro}}
+                </li>
+            </ul>
+        </div>
+    </div>
