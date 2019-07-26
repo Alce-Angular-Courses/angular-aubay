@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { TareasComponent } from './tareas/tareas.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ErrorComponent } from './core/error/error.component';
 
 const routes: Routes = [
   //{ path: 'home', component: HomeComponent },
@@ -22,7 +23,7 @@ const routes: Routes = [
     loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosModule)
   },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: '**', redirectTo: 'home' }
+  { path: '**', component: ErrorComponent }
 ];
 
 @NgModule({
