@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TITULOS } from '../libros/libros-mock/data';
-import { from, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

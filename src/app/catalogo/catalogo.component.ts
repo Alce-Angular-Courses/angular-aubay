@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DATA } from './catalogo.data'
+// import { DATA } from './catalogo.data'
+import DATA from './catalogo.json'
 
 @Component({
   selector: 'aby-catalogo',

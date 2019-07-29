@@ -119,3 +119,6 @@ console.log(s)
 s = aMasDatos.reduce( (a,b) => a + b)
 console.log(s)
 
+let a = [2, 5, 6]
+let aCuadrados = a.map(item => item*item)
+
