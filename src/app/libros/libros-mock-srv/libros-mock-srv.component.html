@@ -10,14 +10,23 @@
             <div class="mt-3">
                 <button type="button" (click)="onBuscar()"
                 class="btn btn-primary">Buscar</button>
+                <button type="button" (click)="onBuscarPromise()"
+                class="btn btn-primary">BuscarPro</button>
+                <button type="button" (click)="onBuscarRx()" 
+                class="btn btn-primary">BuscarRx</button>                
             </div>        
         </div>
         <div class="card-footer text-muted">
-            Resultados
-            <ul>
-                <li *ngFor="let libro of aLibros">
-                    {{libro}}
-                </li>
-            </ul>
+            <div *ngIf="aLibros.length; else mensajes">
+                Resultados
+                <ul>
+                    <li *ngFor="let libro of aLibros">
+                        {{libro}}
+                    </li>
+                </ul>                
+            </div>
+            <ng-template #mensajes>
+                {{ mensajesError }}
+            </ng-template>        
         </div>
     </div>
