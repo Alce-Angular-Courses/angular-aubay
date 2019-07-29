@@ -16,12 +16,18 @@ export class GoogleBooksService {
   }
 
   getAll(clave:string) : Promise<any>  {
-    return this.http.get(this.url).toPromise()
+    return this.http.get(this.url+clave).toPromise()
+    .then((response:any) => 
+      new Promise( (resolve) => {
+        resolve(response.items.map(
+        item => item.volumeInfo.title) )
+      })
+    )
   }
 
   getAllRx(clave:string): Observable<Array<string>> {
     return this.http
-    .get(this.url)
+    .get(this.url+clave)
     .pipe( map( (response:any ) => response.items))
     .pipe( map( (response:Array<any> ) => 
       response.map(item => item.volumeInfo.title)

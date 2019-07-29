@@ -22,16 +22,20 @@ export class LibrosGoogleSrvComponent implements OnInit {
 
   onBuscar() {
     this.gbService.getAll(this.clave).then(
-      (response: any) => this.aLibros = 
-        response.items.map(
-          (item: any) => item.volumeInfo.title
-      )  
-    )
-  }
+      (response: any) => this.aLibros = response)
+    .catch(
+      error => this.mensajesError = error.message)
+}
 
 
   onBuscarRx() {
-    this.aLibros$ 
-      = this.gbService.getAllRx(this.clave)
+      // this.aLibros$ 
+      this.gbService.getAllRx(this.clave)
+      .subscribe(
+        response => this.aLibros = response,
+        error => this.mensajesError = error.message
+      )
+    
+    
   }
 }
